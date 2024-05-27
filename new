@@ -1,0 +1,71 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>//rand头文件
+#include<time.h>//time头文件
+ 
+void menu()
+{
+	printf("--- --- --- --- ---  ---\n");
+	printf("---  输入1 开始游戏  ---\n");
+	printf("---  输入0 结束游戏  ---\n");
+	printf("--- --- --- --- ---  ---\n");
+}
+ 
+void game()
+{
+	int guess = 0;
+ 
+	srand((unsigned int)time(NULL));
+	//printf("%d\n", 10 + rand() % 10 + 1);
+ 
+	int suiji = rand() % 10 + 1;
+ 
+	while (1)//这里是如果主函数里面输入是1，则进入循环，不然不进循环
+	{
+		printf("输入一个数字，小可爱：");
+		scanf("%d",&guess);
+		if (guess > suiji)
+		{
+			printf("小子，你输入大了。");
+		}
+		else if(guess < suiji)
+		{
+			printf("宝宝，你输入小了。");
+		}
+		else
+		{
+			printf("baby 你历经千辛万苦终于猜对了，不用接收惩罚了");
+			break;
+		}
+	}
+ 
+ 
+ 
+}
+ 
+ 
+int main()
+{
+	menu();
+	int input = 0;
+	printf("聪明的小孩，看看菜单输入你需要的数字请选择数字：");
+	scanf("%d", &input);
+	switch (input)
+	{
+	case 1:
+		game();
+		break;
+	case 0:
+		printf("结束游戏，滚蛋吧笨蛋\n");
+		break;
+	default:
+		printf("笨蛋看看说明书，你输入的有问题\n");
+		break;
+	}
+ 
+ 
+ 
+ 
+ 
+	return 0;
+}
